@@ -34,4 +34,4 @@ def levenshtein(a, b):
     Returns:
         The difference between strings "a" and "b" as an integer.
     """
-    return None
+    return 0
