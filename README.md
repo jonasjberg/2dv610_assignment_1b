@@ -84,8 +84,9 @@ This program requires Python 3 to run.
 It has been developed on Linux and MacOS but should run fine on Windows.
 
 
-A wrapper script is provided for running all unit tests and optionally
-producing HTML reports of the test result and test coverage.
+A wrapper script `run_all_unit_tests.sh` is provided for running all unit tests
+and optionally producing HTML reports of the test result and test coverage.
+The reports are written to the `testreports` directory in the repository root.
 
 Runner script help text:
 ```
