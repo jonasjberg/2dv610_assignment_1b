@@ -9,12 +9,12 @@ University mail: `js224eh[a]student.lnu.se`
 
 --------------------------------------------------------------------------------
 
-This is the second part of the first assignment in the course "`1DV610` --
+This is the second part of the first assignment in the course "`2DV610` --
 "Software Testing", given at [Linnaeus University](https://lnu.se/en/) as part
 of the "[Software Development and Operations](https://udm-devops.se/)"
 programme.
 
-Written by Jonas Sjöberg.
+Written by Jonas Sjöberg (`js224eh`)
 
 
 
