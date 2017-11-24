@@ -18,6 +18,66 @@ Written by Jonas Sjöberg (`js224eh`)
 
 
 
+Program Description
+===================
+This program will compare *metadata* and display any differences along with a
+similarity score between 0 and 1.
+
+Example metadata:
+```python
+isbn_metadata_1 = {
+    'Title'     : 'Mastering Windows Network Forensics And Investigation',
+    'Authors'   : ['Steven Anson', 'Steve Bunting', 'Ryan Johnson', 'Scott Pearson'],
+    'Publisher' : 'Sybex',
+    'Year'      : 2012,
+    'Language'  : 'eng',
+    'ISBN-10'   : 1118236084,
+    'ISBN-13'   : 9781118236086
+}
+```
+
+If the above metadata was to be compared with this;
+```python
+isbn_metadata_2 = {
+    'Title'     : 'Mastering Windows Network Forensics And Investigation',
+    'Authors'   : ['Steve Anson ... [et al.]'],
+    'Publisher' : 'Wiley',
+    'Year'      : 2012,
+    'Language'  : 'eng',
+    'ISBN-10'   : 1118264118,
+    'ISBN-13'   : 9781118264119
+}
+```
+
+.. the program output should be something along the lines of:
+```
+Comparison results
+==================
+
+'Title'      Similarity: 1.0
+'Authors'    Similarity: 0.2
+                   Diff: ['Steven Anson', 'Steve Bunting', 'Ryan Johnson', 'Scott Pearson']
+                         ['Steve Anson ... [et al.]']
+
+'Publisher'  Similarity: 0.0
+                   Diff: 'Sybex'
+                         'Wiley'
+
+'Year'       Similarity: 1.0
+'Language'   Similarity: 1.0
+'ISBN-10'    Similarity: 0.0
+                   Diff: 1118236084
+                         1118264118
+
+'ISBN-13'    Similarity: 0.0
+                   Diff: 9781118236086
+                         9781118264119
+
+ TOTAL SIMILARITY SCORE: 0.6
+```
+
+
+
 Running/Requirements
 ====================
 *TODO: ..*
