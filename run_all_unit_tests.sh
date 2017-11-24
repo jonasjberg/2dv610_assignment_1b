@@ -143,7 +143,7 @@ then
     exit 1
 fi
 
-_coverage_log="${TESTRESULTS_DIR}/coverage_log_${_timestamp}.html"
+_coverage_log="${TESTRESULTS_DIR}/coverage_log_${_timestamp}"
 if [ -e "$_coverage_log" ]
 then
     echo "File exists: \"${_coverage_log}\" .. Aborting" >&2
