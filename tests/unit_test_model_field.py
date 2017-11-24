@@ -61,12 +61,14 @@ class TestFieldAuthor(TestCase):
         actual = self.author.middlename
         self.assertTrue(isinstance(actual, str))
 
+    @staticmethod
+    def __format_assertion_failure(instance, expected, actual):
+        return 'Expected first name of {!r} to be "{!s}". Got "{!s}"'.format(
+            instance, expected, actual
+        )
+
     def test_attribute_first_name_has_expected_value(self):
         actual = self.author.firstname
         expect = 'Gibson'
-        self.assertEqual(
-            actual, expect,
-            'Expected first name of {!r} to be "{!s}". Got "{!s}"'.format(
-                self.author, expect, actual
-            )
-        )
+        _msg = self.__format_assertion_failure(self.author, expect, actual)
+        self.assertEqual(actual, expect, _msg)
