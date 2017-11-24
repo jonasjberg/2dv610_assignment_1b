@@ -27,3 +27,7 @@ from metadatadiff.model.field import BaseField
 class TestBaseField(TestCase):
     def test_is_defined(self):
         self.assertIsNotNone(BaseField)
+
+    def test_init_accepts_one_parameter(self):
+        f = BaseField('foo')
+        self.assertIsNotNone(f)
