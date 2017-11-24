@@ -46,5 +46,9 @@ class TestBaseField(TestCase):
 
 
 class TestFieldAuthor(TestCase):
-    def test_is_defined(self):
-        self.assertIsNotNone(Author)
+    def setUp(self):
+        self.author = Author('Gibson Meow Sjöberg')
+
+    def test_attribute_first_name_is_expected_type(self):
+        actual = self.author.firstname
+        self.assertTrue(isinstance(actual, str))
