@@ -60,3 +60,13 @@ class TestFieldAuthor(TestCase):
     def test_attribute_middle_name_is_expected_type(self):
         actual = self.author.middlename
         self.assertTrue(isinstance(actual, str))
+
+    def test_attribute_first_name_has_expected_value(self):
+        actual = self.author.firstname
+        expect = 'Gibson'
+        self.assertEqual(
+            actual, expect,
+            'Expected first name of {!r} to be "{!s}". Got "{!s}"'.format(
+                self.author, expect, actual
+            )
+        )
