@@ -36,9 +36,14 @@ class BaseField(object):
 
 
 class Author(BaseField):
+    def __init__(self, value):
+        super().__init__(value)
+
+        self._firstname, *_ = value.split(' ')
+
     @property
     def firstname(self):
-        return ''
+        return self._firstname
 
     @property
     def lastname(self):
