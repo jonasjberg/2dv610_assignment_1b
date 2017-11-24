@@ -80,5 +80,38 @@ Comparison results
 
 Running/Requirements
 ====================
-*TODO: ..*
+This program requires Python 3 to run.
+It has been developed on Linux and MacOS but should run fine on Windows.
 
+
+A wrapper script is provided for running all unit tests and optionally
+producing HTML reports of the test result and test coverage.
+
+Runner script help text:
+```
+"run_all_unit_tests.sh"  --  metadatadiff unit tests runner
+
+  USAGE:  run_all_unit_tests.sh ([OPTIONS])
+
+  OPTIONS:  -h   Display usage information and exit.
+
+            -c   Enable checking unit test coverage.
+                 NOTE: Requires "pytest" and "pytest-html".
+
+            -w   Write HTML test reports to disk.
+                 Also writes a report of the test coverage if
+                 combined with the '-c' option.
+
+                 NOTE: Requires "pytest" and "pytest-html".
+                       Coverage reports require "pytest-cov".
+
+                 Reports are written to the following path:
+                 "/Users/jonas/Dropbox/LNU/2DV610_Testing/src/2dv610_assignment-1b.git/testreports"
+
+            -q   Suppress output from test suites.
+
+  All options are optional. Default behaviour is to not write any
+  reports and print the test results to stdout/stderr in real-time.
+
+  Tests are executed with "pytest" if available, else "unittest".
+```
