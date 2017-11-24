@@ -61,26 +61,19 @@ class TestFieldAuthor(TestCase):
         actual = self.author.middlename
         self.assertTrue(isinstance(actual, str))
 
-    @staticmethod
-    def __format_assertion_failure(instance, expected, actual):
-        return 'Expected first name of {!r} to be "{!s}". Got "{!s}"'.format(
-            instance, expected, actual
+    def __assert_that(self, instance, attribute, equals):
+        expected = equals
+        actual = getattr(instance, attribute)
+        _msg = 'Expected {!s} of {!r} to be "{!s}". Got "{!s}"'.format(
+            attribute, instance, expected, actual
         )
+        self.assertEqual(actual, expected, _msg)
 
     def test_attribute_first_name_has_expected_value(self):
-        actual = self.author.firstname
-        expect = 'Gibson'
-        _msg = self.__format_assertion_failure(self.author, expect, actual)
-        self.assertEqual(actual, expect, _msg)
+        self.__assert_that(self.author, 'firstname', equals='Gibson')
 
     def test_attribute_last_name_has_expected_value(self):
-        actual = self.author.lastname
-        expect = 'Sjöberg'
-        _msg = self.__format_assertion_failure(self.author, expect, actual)
-        self.assertEqual(actual, expect, _msg)
+        self.__assert_that(self.author, 'lastname', equals='Sjöberg')
 
     def test_attribute_middle_name_has_expected_value(self):
-        actual = self.author.middlename
-        expect = 'Meow'
-        _msg = self.__format_assertion_failure(self.author, expect, actual)
-        self.assertEqual(actual, expect, _msg)
+        self.__assert_that(self.author, 'middlename', equals='Meow')
