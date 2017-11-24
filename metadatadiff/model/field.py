@@ -33,3 +33,7 @@ class BaseField(object):
         if self.value == other.value:
             return True
         return False
+
+
+class Author(BaseField):
+    pass
