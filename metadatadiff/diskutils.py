@@ -28,3 +28,15 @@ def load_file(file_path):
         _raise_invalid_path()
     if not file_path.strip():
         _raise_invalid_path()
+
+
+class FileLoader(object):
+    def __init__(self):
+        pass
+
+    def __call__(self, file_path):
+        pass
+
+    def _validate_path(self, file_path):
+        pass
+

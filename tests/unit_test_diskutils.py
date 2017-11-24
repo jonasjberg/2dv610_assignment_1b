@@ -39,3 +39,18 @@ class TestLoadFile(TestCase):
         __assert_raises(b'')
         __assert_raises(b' ')
         __assert_raises(object())
+
+
+class TestFileLoader(TestCase):
+    def test__validate_path_raises_exception_given_invalid_path(self):
+        def __assert_false(test_input):
+            actual = diskutils.FileLoader._validate_path(test_input)
+            self.assertFalse(actual)
+
+        __assert_false(None)
+        __assert_false('')
+        __assert_false(' ')
+        __assert_false(b'')
+        __assert_false(b' ')
+        __assert_false(object())
+        __assert_false('/tmp/does/not/exist/surely/..right?')
