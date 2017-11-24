@@ -31,3 +31,23 @@ class TestLevenshteinDistance(TestCase):
     def test_returns_integers(self):
         actual = textutils.levenshtein('a', 'b')
         self.assertTrue(isinstance(actual, int))
+
+    def test_returns_expected_string_difference(self):
+        TESTDATA_GIVEN_A_B_EXPECT = [
+            ('a', 'a', 0),
+            ('a', 'b', 1),
+            ('a', 'ab', 1),
+            ('a', 'ab', 1),
+            ('c', 'ab', 2),
+            ('cd', 'ab', 2),
+            ('abc', 'abc', 0),
+            ('abc', 'cba', 2),
+            ('meow', 'meow', 0),
+            ('meeeow', 'meow', 2),
+            ('MEOW', 'meow', 4),
+            ('MEOW', 'meeeow', 6),
+        ]
+
+        for a, b, expect in TESTDATA_GIVEN_A_B_EXPECT:
+            actual = textutils.levenshtein(a, b)
+            self.assertEqual(actual, expect)
