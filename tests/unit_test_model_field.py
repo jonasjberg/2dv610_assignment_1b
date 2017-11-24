@@ -112,6 +112,7 @@ class TestFieldAuthorNameSegmentation(TestCase):
             __assert_valid_type(testdata.Last)
 
     def test_first_name(self):
+        self.skipTest('TODO')
         for testdata in self.TESTDATA_FULLNAME_EXPECTED_SEGMENTS:
             actual = Author(testdata.Full).firstname
             self.assertEqual(actual, testdata.First)

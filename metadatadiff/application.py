@@ -19,12 +19,7 @@
 #   You should have received a copy of the GNU General Public License
 #   along with metadatadiff.  If not, see <http://www.gnu.org/licenses/>.
 
-__title__ = 'metadatadiff'
-__version_info__ = (0, 0, 1)
-__version__ = '.'.join(map(str, __version_info__))
-__author__ = 'Jonas Sjöberg'
-__email__ = 'jomeganas@gmail.com'
-__url__ = 'www.jonasjberg.com'
-__url_repo__ = 'https://github.com/jonasjberg/2dv610_assignment_1b'
-__license__ = 'GNU General Public License Version 2'
-__copyright__ = 'Copyright \N{COPYRIGHT SIGN} 2017 {}'.format(__author__)
+
+def real_main(opts):
+    print('Got opts: "{!s}"'.format(opts))
+    pass
