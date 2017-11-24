@@ -39,7 +39,7 @@ class Author(BaseField):
     def __init__(self, value):
         super().__init__(value)
 
-        self._firstname, *_ = value.split(' ')
+        self._firstname, _, self._lastname = value.split(' ')
 
     @property
     def firstname(self):
@@ -47,7 +47,7 @@ class Author(BaseField):
 
     @property
     def lastname(self):
-        return ''
+        return self._lastname
 
     @property
     def middlename(self):
