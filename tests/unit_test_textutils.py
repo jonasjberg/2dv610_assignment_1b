@@ -28,3 +28,6 @@ class TestLevenshteinDistance(TestCase):
     def test_is_defined(self):
         self.assertIsNotNone(textutils.levenshtein)
 
+    def test_returns_integers(self):
+        actual = textutils.levenshtein('a', 'b')
+        self.assertTrue(isinstance(actual, int))
