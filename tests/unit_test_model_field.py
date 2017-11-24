@@ -21,7 +21,10 @@
 
 from unittest import TestCase
 
-from metadatadiff.model.field import BaseField
+from metadatadiff.model.field import (
+    Author,
+    BaseField
+)
 
 
 class TestBaseField(TestCase):
@@ -40,3 +43,8 @@ class TestBaseField(TestCase):
         self.assertTrue(f1 == f2, 'Expected {!r} == {!r}'.format(f1, f2))
         self.assertTrue(f1 != f3, 'Expected {!r} != {!r}'.format(f1, f3))
         self.assertTrue(f2 != f3, 'Expected {!r} != {!r}'.format(f2, f3))
+
+
+class TestFieldAuthor(TestCase):
+    def test_is_defined(self):
+        self.assertIsNotNone(Author)
