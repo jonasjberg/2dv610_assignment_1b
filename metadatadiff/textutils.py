@@ -20,3 +20,18 @@
 #   along with metadatadiff.  If not, see <http://www.gnu.org/licenses/>.
 
 
+def levenshtein(a, b):
+    """
+    Calculates the edit difference of Unicode strings "a" and "b".
+
+    Originally from "autonameow" by Jonas Sjöberg.
+    Project repository:  www.github.com/jonasjberg/autonameow
+
+    Args:
+        a: First Unicode string to compare.
+        b: Second Unicode string to compare.
+
+    Returns:
+        The difference between strings "a" and "b" as an integer.
+    """
+    return None
