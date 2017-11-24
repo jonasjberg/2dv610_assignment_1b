@@ -20,3 +20,5 @@
 #   along with metadatadiff.  If not, see <http://www.gnu.org/licenses/>.
 
 
+def load_file(file_path):
+    pass
