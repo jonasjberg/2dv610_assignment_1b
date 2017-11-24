@@ -21,4 +21,10 @@
 
 
 def load_file(file_path):
-    pass
+    def _raise_invalid_path():
+        raise ValueError('Invalid file path: "{!s}"'.format(file_path))
+
+    if not file_path or not isinstance(file_path, str):
+        _raise_invalid_path()
+    if not file_path.strip():
+        _raise_invalid_path()
