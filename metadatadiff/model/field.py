@@ -36,4 +36,6 @@ class BaseField(object):
 
 
 class Author(BaseField):
-    pass
+    @property
+    def firstname(self):
+        return ''
