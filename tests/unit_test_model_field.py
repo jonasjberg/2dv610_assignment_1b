@@ -19,6 +19,7 @@
 #   You should have received a copy of the GNU General Public License
 #   along with metadatadiff.  If not, see <http://www.gnu.org/licenses/>.
 
+from collections import namedtuple
 from unittest import TestCase
 
 from metadatadiff.model.field import (
@@ -77,3 +78,40 @@ class TestFieldAuthor(TestCase):
 
     def test_attribute_middle_name_has_expected_value(self):
         self.__assert_that(self.author, 'middlename', equals='Meow')
+
+
+class TestFieldAuthorNameSegmentation(TestCase):
+    # Using 'namedtuple' for readability.
+    TD = namedtuple('TD', 'Full First Middle Last')
+
+    # List of tuples, each containing input data and the expected output data.
+    TESTDATA_FULLNAME_EXPECTED_SEGMENTS = [
+        TD(Full='Gibson Meow Sjöberg',
+           First='Gibson', Middle='Meow', Last='Sjöberg'),
+        TD(Full='Gibson Sjöberg',
+           First='Gibson', Middle='', Last='Sjöberg'),
+        TD(Full='Gibson',
+           First='Gibson', Middle='', Last=''),
+        TD(Full='Jonas Sjöberg',
+           First='Jonas', Middle='', Last='Sjöberg'),
+        TD(Full='Jonas',
+           First='Jonas', Middle='', Last=''),
+    ]
+
+    def test_testdata(self):
+        """
+        Sanity-checking.
+        """
+        def __assert_valid_type(value):
+            self.assertTrue(isinstance(value, str))
+
+        for testdata in self.TESTDATA_FULLNAME_EXPECTED_SEGMENTS:
+            __assert_valid_type(testdata.Full)
+            __assert_valid_type(testdata.First)
+            __assert_valid_type(testdata.Middle)
+            __assert_valid_type(testdata.Last)
+
+    def test_first_name(self):
+        for testdata in self.TESTDATA_FULLNAME_EXPECTED_SEGMENTS:
+            actual = Author(testdata.Full).firstname
+            self.assertEqual(actual, testdata.First)
