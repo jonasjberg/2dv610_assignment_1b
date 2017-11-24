@@ -43,3 +43,7 @@ class Author(BaseField):
     @property
     def lastname(self):
         return ''
+
+    @property
+    def middlename(self):
+        return ''
