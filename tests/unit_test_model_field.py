@@ -52,3 +52,7 @@ class TestFieldAuthor(TestCase):
     def test_attribute_first_name_is_expected_type(self):
         actual = self.author.firstname
         self.assertTrue(isinstance(actual, str))
+
+    def test_attribute_last_name_is_expected_type(self):
+        actual = self.author.lastname
+        self.assertTrue(isinstance(actual, str))
