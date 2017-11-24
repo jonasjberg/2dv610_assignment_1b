@@ -72,3 +72,9 @@ class TestFieldAuthor(TestCase):
         expect = 'Gibson'
         _msg = self.__format_assertion_failure(self.author, expect, actual)
         self.assertEqual(actual, expect, _msg)
+
+    def test_attribute_last_name_has_expected_value(self):
+        actual = self.author.lastname
+        expect = 'Sjöberg'
+        _msg = self.__format_assertion_failure(self.author, expect, actual)
+        self.assertEqual(actual, expect, _msg)
