@@ -31,3 +31,12 @@ class TestBaseField(TestCase):
     def test_init_accepts_one_parameter(self):
         f = BaseField('foo')
         self.assertIsNotNone(f)
+
+    def test_instance_comparison(self):
+        f1 = BaseField('foo')
+        f2 = BaseField('foo')
+        f3 = BaseField('bar')
+        self.assertTrue(f1 == f1, 'Expected {!r} == {!r}'.format(f1, f1))
+        self.assertTrue(f1 == f2, 'Expected {!r} == {!r}'.format(f1, f2))
+        self.assertTrue(f1 != f3, 'Expected {!r} != {!r}'.format(f1, f3))
+        self.assertTrue(f2 != f3, 'Expected {!r} != {!r}'.format(f2, f3))

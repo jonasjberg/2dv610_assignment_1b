@@ -23,3 +23,6 @@
 class BaseField(object):
     def __init__(self, value):
         self.value = value
+
+    def __repr__(self):
+        return '{!s}("{!s}")'.format(self.__class__.__name__, self.value)
