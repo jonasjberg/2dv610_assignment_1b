@@ -37,6 +37,12 @@ class FileLoader(object):
     def __call__(self, file_path):
         pass
 
-    def _validate_path(self, file_path):
-        pass
+    @staticmethod
+    def _validate_path(file_path):
+        try:
+            is_valid_path = os.path.isfile(file_path)
+        except (OSError, TypeError):
+            return False
+        else:
+            return is_valid_path
 
