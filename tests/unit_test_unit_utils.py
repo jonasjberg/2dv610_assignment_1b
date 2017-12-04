@@ -27,3 +27,7 @@ import unit_utils as uu
 class TestAbsPathTestFile(TestCase):
     def test_abspath_testfile_is_defined(self):
         self.assertIsNotNone(uu.abspath_testfile)
+
+    def test_raises_assertion_error_given_none_argument(self):
+        with self.assertRaises(AssertionError):
+            _ = uu.abspath_testfile(None)
