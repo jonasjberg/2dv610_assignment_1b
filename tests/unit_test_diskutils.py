@@ -74,3 +74,12 @@ class TestFileLoader(TestCase):
         expect = None
         actual = diskutils.FileLoader._loader_for_filetype('foo.jpg')
         self.assertEqual(expect, actual)
+
+    def test_json_loader_is_called(self):
+        mock_json_loader = mock.Mock()
+        mock_loaders = {'json': mock_json_loader, 'yaml': mock.Mock()}
+
+        with mock.patch.dict('diskutils.FileLoader.LOADERS', mock_loaders):
+            _ = diskutils.FileLoader()('foo.json')
+
+        mock_json_loader.assert_called_with('foo.json')
