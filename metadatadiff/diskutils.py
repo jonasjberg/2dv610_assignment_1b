@@ -39,7 +39,8 @@ class FileLoader(object):
         pass
 
     def __call__(self, file_path):
-        pass
+        loader = self._loader_for_filetype(file_path)
+        return loader(file_path)
 
     @staticmethod
     def _validate_path(file_path):
