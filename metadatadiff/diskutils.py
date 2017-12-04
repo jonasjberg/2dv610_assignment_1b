@@ -33,6 +33,8 @@ def load_file(file_path):
 
 
 class FileLoader(object):
+    LOADERS = {}
+
     def __init__(self):
         pass
 
@@ -58,3 +60,11 @@ class FileLoader(object):
             assert isinstance(extension, str)
             extension = extension.lstrip('.').strip()
             return extension
+
+    @classmethod
+    def _loader_for_filetype(cls, file_path):
+        # NOTE: It is always more robust to get the MIME-type from the "magic"
+        #       header bytes, but this will have to be good enough for now.
+
+        extension = cls._file_extension(file_path)
+        return cls.LOADERS.get(extension)
