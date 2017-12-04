@@ -43,5 +43,10 @@ def abspath_testfile(basename):
                              'but got "{!s}"'.format(type(basename)))
 
     path = os.path.abspath(os.path.join(uuconst.TEST_FILES_DIR, basename))
-    if not os.path.exists(path):
+    try:
+        if not os.path.exists(path):
+            raise FileNotFoundError
+    except (OSError, TypeError):
         raise FileNotFoundError
+
+    return path

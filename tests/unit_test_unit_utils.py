@@ -49,6 +49,7 @@ class TestAbsPathTestFile(TestCase):
     def test_returns_absolute_paths_given_basenames_of_existing_files(self):
         def __assert_ok(basename):
             actual = uu.abspath_testfile(basename)
+            self.assertIsNotNone(actual)
             self.assertTrue(os.path.exists(actual))
 
         __assert_ok('.keep')

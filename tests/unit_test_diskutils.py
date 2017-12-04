@@ -30,7 +30,7 @@ class TestLoadFile(TestCase):
 
     def test_raises_exception_when_given_invalid_path(self):
         def __assert_raises(test_input):
-            with self.assertRaises(ValueError):
+            with self.assertRaises(FileNotFoundError):
                 _ = diskutils.load_file(test_input)
 
         __assert_raises(None)

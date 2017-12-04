@@ -23,9 +23,7 @@ import os
 
 
 _this_dir = os.path.abspath(os.path.dirname(__file__))
-_parent_parent_dir = os.path.normpath(
-    os.path.join(_this_dir, os.pardir, os.pardir)
-)
+_parent_dir = os.path.normpath(os.path.join(_this_dir, os.pardir))
 TEST_FILES_DIR = os.path.normpath(
-    os.path.join(_parent_parent_dir, 'test_files')
+    os.path.join(_parent_dir, 'test_files')
 )
