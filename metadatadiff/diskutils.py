@@ -55,5 +55,6 @@ class FileLoader(object):
         except OSError:
             return None
         else:
-            extension = extension.lstrip('.')
+            assert isinstance(extension, str)
+            extension = extension.lstrip('.').strip()
             return extension

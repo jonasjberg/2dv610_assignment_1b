@@ -55,6 +55,7 @@ class TestFileLoader(TestCase):
         __assert_false(object())
         __assert_false('/tmp/does/not/exist/surely/..right?')
 
+    # Isolate ourselves from any real I/O.
     @mock.patch('os.path.splitext')
     def test__file_extension(self, mock_splitext):
         mock_splitext.return_value = ('foo', '.txt')
