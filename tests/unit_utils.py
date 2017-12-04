@@ -41,3 +41,7 @@ def abspath_testfile(basename):
     if not isinstance(basename, str):
         raise AssertionError('Expect argument "basename" to be of type "str" '
                              'but got "{!s}"'.format(type(basename)))
+
+    path = os.path.abspath(os.path.join(uuconst.TEST_FILES_DIR, basename))
+    if not os.path.exists(path):
+        raise FileNotFoundError
