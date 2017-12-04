@@ -38,3 +38,6 @@ def abspath_testfile(basename):
     """
     if not basename:
         raise AssertionError('Got empty argument "basename"')
+    if not isinstance(basename, str):
+        raise AssertionError('Expect argument "basename" to be of type "str" '
+                             'but got "{!s}"'.format(type(basename)))
