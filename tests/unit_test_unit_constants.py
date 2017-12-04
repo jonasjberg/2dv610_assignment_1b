@@ -27,3 +27,6 @@ import unit_constants as uuconst
 class UnitTestConstants(TestCase):
     def test_uuconst_is_not_none(self):
         self.assertIsNotNone(uuconst)
+
+    def test_defines_constant_test_files_dir(self):
+        self.assertIsNotNone(uuconst.TEST_FILES_DIR)
