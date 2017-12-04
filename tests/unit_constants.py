@@ -19,11 +19,4 @@
 #   You should have received a copy of the GNU General Public License
 #   along with metadatadiff.  If not, see <http://www.gnu.org/licenses/>.
 
-from unittest import TestCase
 
-import unit_constants as uuconst
-
-
-class UnitTestConstants(TestCase):
-    def test_uuconst_is_not_none(self):
-        self.assertIsNotNone(uuconst)
