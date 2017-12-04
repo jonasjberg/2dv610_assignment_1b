@@ -36,4 +36,5 @@ def abspath_testfile(basename):
     Returns:
         The full absolute path to the given file.
     """
-    pass
+    if not basename:
+        raise AssertionError('Got empty argument "basename"')
