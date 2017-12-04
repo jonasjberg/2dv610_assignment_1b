@@ -24,7 +24,7 @@ from unittest import TestCase
 import unit_constants as uuconst
 
 
-class UnitTestConstants(TestCase):
+class TestUnitTestConstants(TestCase):
     def test_uuconst_is_not_none(self):
         self.assertIsNotNone(uuconst)
 

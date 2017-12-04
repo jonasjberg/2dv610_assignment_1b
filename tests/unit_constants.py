@@ -19,4 +19,13 @@
 #   You should have received a copy of the GNU General Public License
 #   along with metadatadiff.  If not, see <http://www.gnu.org/licenses/>.
 
+import os
 
+
+_this_dir = os.path.abspath(os.path.dirname(__file__))
+_parent_parent_dir = os.path.normpath(
+    os.path.join(_this_dir, os.pardir, os.pardir)
+)
+TEST_FILES_DIR = os.path.normpath(
+    os.path.join(_parent_parent_dir, 'test_files')
+)
