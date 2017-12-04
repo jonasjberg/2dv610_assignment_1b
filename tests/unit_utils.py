@@ -36,11 +36,10 @@ def abspath_testfile(basename):
     Returns:
         The full absolute path to the given file.
     """
-    if not basename:
-        raise AssertionError('Got empty argument "basename"')
-    if not isinstance(basename, str):
-        raise AssertionError('Expect argument "basename" to be of type "str" '
-                             'but got "{!s}"'.format(type(basename)))
+    assert basename, 'Got empty argument "basename"'
+    assert isinstance(basename, str), (
+        'Expect "basename" to of type "str", not "{!s}"'.format(type(basename))
+    )
 
     path = os.path.abspath(os.path.join(uuconst.TEST_FILES_DIR, basename))
     try:
