@@ -31,3 +31,12 @@ class TestAbsPathTestFile(TestCase):
     def test_raises_assertion_error_given_none_argument(self):
         with self.assertRaises(AssertionError):
             _ = uu.abspath_testfile(None)
+
+    def test_raises_assertion_error_given_non_string_argument(self):
+        def __assert_raises(given):
+            with self.assertRaises(AssertionError):
+                _ = uu.abspath_testfile(given)
+
+        __assert_raises(1337)
+        __assert_raises(b'foo')
+        __assert_raises(['foo', 'bar'])
