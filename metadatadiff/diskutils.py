@@ -19,6 +19,8 @@
 #   You should have received a copy of the GNU General Public License
 #   along with metadatadiff.  If not, see <http://www.gnu.org/licenses/>.
 
+import os
+
 
 def load_file(file_path):
     def _raise_invalid_path():
@@ -48,4 +50,10 @@ class FileLoader(object):
 
     @classmethod
     def _file_extension(cls, file_path):
-        return None
+        try:
+            _, extension = os.path.splitext(file_path)
+        except OSError:
+            return None
+        else:
+            extension = extension.lstrip('.')
+            return extension
