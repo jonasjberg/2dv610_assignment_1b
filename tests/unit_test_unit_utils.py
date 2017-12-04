@@ -40,3 +40,7 @@ class TestAbsPathTestFile(TestCase):
         __assert_raises(1337)
         __assert_raises(b'foo')
         __assert_raises(['foo', 'bar'])
+
+    def test_raises_file_not_found_error_for_basename_of_nonexistent_file(self):
+        with self.assertRaises(FileNotFoundError):
+            _ = uu.abspath_testfile('_.this_is_not_a_file_surely._')
