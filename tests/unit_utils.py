@@ -43,9 +43,9 @@ def abspath_testfile(basename):
 
     path = os.path.abspath(os.path.join(uuconst.TEST_FILES_DIR, basename))
     try:
-        if not os.path.exists(path):
-            raise FileNotFoundError
+        if os.path.exists(path):
+            return path
     except (OSError, TypeError):
-        raise FileNotFoundError
+        pass
 
-    return path
+    raise FileNotFoundError
