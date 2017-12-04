@@ -40,6 +40,7 @@ class FileLoader(object):
 
     def __call__(self, file_path):
         loader = self._loader_for_filetype(file_path)
+        assert callable(loader)
         return loader(file_path)
 
     @staticmethod

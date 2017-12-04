@@ -53,3 +53,4 @@ class TestAbsPathTestFile(TestCase):
             self.assertTrue(os.path.exists(actual))
 
         __assert_ok('.keep')
+        __assert_ok('isbn_metadata.json')

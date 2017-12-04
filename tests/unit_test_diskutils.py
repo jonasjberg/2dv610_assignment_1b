@@ -83,3 +83,12 @@ class TestFileLoader(TestCase):
             _ = diskutils.FileLoader()('foo.json')
 
         mock_json_loader.assert_called_with('foo.json')
+
+    def test_yaml_loader_is_called(self):
+        mock_yaml_loader = mock.Mock()
+        mock_loaders = {'json': mock.Mock(), 'yaml': mock_yaml_loader}
+
+        with mock.patch.dict('diskutils.FileLoader.LOADERS', mock_loaders):
+            _ = diskutils.FileLoader()('foo.yaml')
+
+        mock_yaml_loader.assert_called_with('foo.yaml')
