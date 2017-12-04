@@ -19,6 +19,7 @@
 #   You should have received a copy of the GNU General Public License
 #   along with metadatadiff.  If not, see <http://www.gnu.org/licenses/>.
 
+import os
 from unittest import TestCase
 
 import unit_utils as uu
@@ -44,3 +45,10 @@ class TestAbsPathTestFile(TestCase):
     def test_raises_file_not_found_error_for_basename_of_nonexistent_file(self):
         with self.assertRaises(FileNotFoundError):
             _ = uu.abspath_testfile('_.this_is_not_a_file_surely._')
+
+    def test_returns_absolute_paths_given_basenames_of_existing_files(self):
+        def __assert_ok(basename):
+            actual = uu.abspath_testfile(basename)
+            self.assertTrue(os.path.exists(actual))
+
+        __assert_ok('.keep')
