@@ -62,3 +62,15 @@ class TestFileLoader(TestCase):
         expect = 'txt'
         actual = diskutils.FileLoader._file_extension('foo.txt')
         self.assertEqual(expect, actual)
+
+    @mock.patch('diskutils.FileLoader.LOADERS', {'json': 'read_json'})
+    def test__loader_for_extension_json_returns_expected(self):
+        expect = 'read_json'
+        actual = diskutils.FileLoader._loader_for_filetype('foo.json')
+        self.assertEqual(expect, actual)
+
+    @mock.patch('diskutils.FileLoader.LOADERS', {'json': 'read_json'})
+    def test__loader_for_extension_jpg_returns_none(self):
+        expect = None
+        actual = diskutils.FileLoader._loader_for_filetype('foo.jpg')
+        self.assertEqual(expect, actual)
