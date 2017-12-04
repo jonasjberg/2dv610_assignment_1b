@@ -19,7 +19,7 @@
 #   You should have received a copy of the GNU General Public License
 #   along with metadatadiff.  If not, see <http://www.gnu.org/licenses/>.
 
-from unittest import TestCase
+from unittest import TestCase, mock
 
 import diskutils
 
@@ -54,3 +54,10 @@ class TestFileLoader(TestCase):
         __assert_false(b' ')
         __assert_false(object())
         __assert_false('/tmp/does/not/exist/surely/..right?')
+
+    @patch('os.path.splitext')
+    def test__file_extension(self, mock_splitext):
+        mock_splitext.return_value = ('foo', '.txt')
+        expect = 'txt'
+        actual = diskutils.FileLoader._file_extension('foo.txt')
+        self.assertEqual(expect, actual)

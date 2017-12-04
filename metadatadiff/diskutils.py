@@ -46,3 +46,6 @@ class FileLoader(object):
         else:
             return is_valid_path
 
+    @classmethod
+    def _file_extension(cls, file_path):
+        return None
