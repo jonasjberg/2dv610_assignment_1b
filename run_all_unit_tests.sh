@@ -182,6 +182,7 @@ run_pytest()
 (
     cd "$SELF_DIR" || return 1
     PYTHONPATH=metadatadiff:tests
+    export PYTHONPATH
 
     if [ "$HAS_PYTEST" != 'true' ]
     then
