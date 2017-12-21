@@ -24,12 +24,19 @@ import os
 
 def load_file(file_path):
     def _raise_invalid_path():
-        raise ValueError('Invalid file path: "{!s}"'.format(file_path))
+        raise FileNotFoundError('Invalid file path: "{!s}"'.format(file_path))
 
     if not file_path or not isinstance(file_path, str):
         _raise_invalid_path()
     if not file_path.strip():
         _raise_invalid_path()
+
+    if not os.path.isfile(file_path):
+        _raise_invalid_path()
+
+
+def load_json(file_path):
+    pass
 
 
 class FileLoader(object):

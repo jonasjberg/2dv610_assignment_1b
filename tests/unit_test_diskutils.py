@@ -92,3 +92,9 @@ class TestFileLoader(TestCase):
             _ = diskutils.FileLoader()('foo.yaml')
 
         mock_yaml_loader.assert_called_with('foo.yaml')
+
+
+class TestLoadJson(TestCase):
+    def test_that_it_does_not_return_none(self):
+        actual = diskutils.load_json()
+        self.assertIsNotNone(actual)
